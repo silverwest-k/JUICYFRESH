@@ -1,38 +1,120 @@
+@font-face {
+  font-family: 'KimjungchulGothic-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulGothic-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
 .App {
+  /*text-align: center;*/
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 사이드메뉴바 */
+.navBar {
+  background-color: #152659;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 100vh;
+  color: #ffffff;
+  font-family: 'KimjungchulGothic-Bold';
+  font-size: 1.6rem;
+  flex: none;
+}
+
+label:first-child {
+  margin-top: 100px;
+}
+
+label {
+  margin: 10px 20px;
+}
+
+.navBar li {
+  font-size: 1.3rem;
+  margin: 10px 30px;
+}
+
+/* 헤더 */
+.headerNav {
+  background-color: #152659;
+  height: 70px;
+  color: #ffffff;
+  font-family: 'KimjungchulGothic-Bold';
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.headerNav strong {
+  margin-left: 30px;
+}
+
+/* 회색 background 영역 */
+.inputArea {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  background-color: #eae8e8;
+  height: 100px;
+  font-family: 'KimjungchulGothic-Bold';
+  /* 세로중앙정렬 */
+  display: flex;
+  align-items: center;
+}
+
+.info {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.info ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.info li {
+  list-style:none;
+  margin-right: 20px;
+}
+
+.buttonArea {
+  width: 40%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.buttonArea button {
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-right: 20px;
+  background-color: #152659;
+  border: #152659;
+  border-radius: 35px;
+  width: 70px;
+}
+
+/* 테이블 영역 */
+.outputArea {
+  padding: 30px;
+  text-align: center;
+}
+
+.outputArea thead {
+  background-color: #0540F2;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
