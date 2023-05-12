@@ -25,12 +25,12 @@
 
 /* 사이드메뉴바 */
 .navBar {
-  background-color: #152659;
+  background-color: #262626;
+  color: #ffea62;
   display: flex;
   flex-direction: column;
   width: 250px;
   height: 100vh;
-  color: #ffffff;
   font-family: 'KimjungchulGothic-Bold';
   font-size: 1.6rem;
   flex: none;
@@ -49,17 +49,22 @@ label {
   margin: 10px 30px;
 }
 
+.navBar img {
+  margin-top: 15px;
+  height: 60px;
+}
+
 /* 헤더 */
 .headerNav {
-  background-color: #152659;
+  background-color: #262626;
   height: 70px;
-  color: #ffffff;
   font-family: 'KimjungchulGothic-Bold';
   font-size: 2rem;
 }
 
 .headerNav p {
   margin-left: 30px;
+  color: #ffea62;
 }
 
 /* 회색 background 영역 */
@@ -94,9 +99,12 @@ label {
 }
 
 #dropdown-basic {
-  background-color: #152659;
-  border: #152659;
+  background-color: #262626;
+  border: #262626;
+  color: #ffea62;
   border-radius: 35px;
+  /*--bs-link-color: #ffea62;*/
+  --bs-dropdown-link-active-bg: #ffea62;
 }
 
 .buttonArea {
@@ -107,8 +115,9 @@ label {
 .buttonArea button {
   justify-content: center;
   margin-right: 20px;
-  background-color: #152659;
-  border: #152659;
+  background-color: #262626;
+  color: #ffea62;
+  border: #262626;
   border-radius: 35px;
   width: 70px;
 }
@@ -120,6 +129,5 @@ label {
 }
 
 .outputArea thead {
-  background-color: #0540F2;
-  color: white;
+  background-color: #ffea62;
 }
