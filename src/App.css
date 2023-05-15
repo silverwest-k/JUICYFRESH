@@ -27,28 +27,41 @@
 
 /* 사이드메뉴바 */
 .sideBar {
-  background-color: #262626;
-  color: #ffea62;
-  display: flex;
-  flex-direction: column;
   width: 250px;
   height: 100%;
+  background-color: #262626;
   font-family: 'KimjungchulGothic-Bold';
-  font-size: 1.3rem;
   flex: none;
 }
 
-label {
-  margin: 10px 20px;
-}
-
-label:first-child {
-  margin-top: 50px;
-}
-
-.sideBar li {
+div.accordion {
   font-size: 1rem;
-  margin: 10px 30px;
+  --bs-link-color : #262626;
+  --bs-accordion-active-color: #ffea62;
+  --bs-accordion-btn-bg:  #262626;
+  --bs-accordion-btn-color: #ffea62;
+  --bs-accordion-active-bg :#262626;
+  --bs-accordion-btn-focus-box-shadow: #262626;
+  --bs-accordion-bg: #ffea62;
+  --bs-accordion-border-color:#262626;
+  --bs-accordion-btn-icon: url(img/sidebar.png);
+  --bs-accordion-btn-active-icon: url(img/sidebar-active.png);
+}
+
+div.accordion:first-child {
+  margin-top: 40px;
+}
+
+button.accordion-button {
+  font-size: 1.3rem;
+}
+
+.accordion a {
+  text-decoration-line: none;
+}
+
+.accordion a:hover {
+  color: #ff5100;
 }
 
 /* 헤더 */
@@ -68,34 +81,25 @@ label:first-child {
 }
 
 .headerNav p {
-  margin-left: 30px;
+  margin-left: 40px;
   color: #ffea62;
+  font-size: 30px;
 }
 
-/* 콘텐츠~~ */
+/* 콘텐츠 */
 .contents {
-  width: 100vw;
+  width: 100%;
 }
 
-/* 회색 background 영역 */
+/* input 영역 */
 .inputArea {
-  justify-content: center;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
   align-items: center;
   background-color: #eae8e8;
   height: 100px;
-  /*font-family: 'KimjungchulGothic-Bold';*/
-  /* 세로중앙정렬 */
-  display: flex;
-  align-items: center;
 }
 
-.info {
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-}
 
 .info ul {
   display: flex;
@@ -113,7 +117,6 @@ label:first-child {
   border: #262626;
   color: #ffea62;
   border-radius: 35px;
-  /*--bs-link-color: #ffea62;*/
   --bs-dropdown-link-active-bg: #ffea62;
 }
 
@@ -123,7 +126,7 @@ label:first-child {
 }
 
 .buttonArea button {
-  justify-content: center;
+  /*justify-content: center;*/
   margin-right: 20px;
   background-color: #262626;
   color: #ffea62;
@@ -132,7 +135,7 @@ label:first-child {
   width: 70px;
 }
 
-/* 테이블 영역 */
+/* output 영역 */
 .outputArea {
   padding: 30px;
   text-align: center;
@@ -140,4 +143,5 @@ label:first-child {
 
 .outputArea thead {
   background-color: #ffea62;
+  font-size: 1.2em;
 }

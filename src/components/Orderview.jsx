@@ -1,8 +1,9 @@
-import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import Dropdown from 'react-bootstrap/Dropdown';
+
+// 발주현황
 function Orderview() {
 
   return(
@@ -45,7 +46,6 @@ function Orderview() {
 
           <div className="buttonArea">
             <Button variant="primary">조회</Button>
-
           </div>
         </div>
 

@@ -1,4 +1,4 @@
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import Obtain from "./Obtain";
 import Obtainview from "./Obtainview";
 import Orderview from "./Orderview";

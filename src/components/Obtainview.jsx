@@ -3,6 +3,7 @@ import {Button} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import Dropdown from 'react-bootstrap/Dropdown';
 
+// 수주현황
 function Obtainview() {
 
   return(

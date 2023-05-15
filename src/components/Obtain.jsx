@@ -1,8 +1,8 @@
-import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 
+// 수주관리
 function Obtain() {
 
   return(
