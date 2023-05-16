@@ -1,147 +1,155 @@
 @font-face {
-  font-family: 'KimjungchulGothic-Bold';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulGothic-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
 }
 
 .App {
-  /*text-align: center;*/
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  width: 100vw;
-  font-size: 12px;
-  box-sizing: border-box;
+    /*text-align: center;*/
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    font-size: 12px;
+    box-sizing: border-box;
 }
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .mes_container {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
 }
 
 /* 사이드메뉴바 */
 .sideBar {
-  width: 250px;
-  height: 100%;
-  background-color: #262626;
-  font-family: 'KimjungchulGothic-Bold';
-  flex: none;
+    width: 250px;
+    height: 100%;
+    flex: none;
+    background-color: #262626;
+    font-family: 'LINESeedKR-Bd';
+}
+
+.menu {
+    font-size: 1rem;
 }
 
 div.accordion {
-  font-size: 1rem;
-  --bs-link-color : #262626;
-  --bs-accordion-active-color: #ffea62;
-  --bs-accordion-btn-bg:  #262626;
-  --bs-accordion-btn-color: #ffea62;
-  --bs-accordion-active-bg :#262626;
-  --bs-accordion-btn-focus-box-shadow: #262626;
-  --bs-accordion-bg: #ffea62;
-  --bs-accordion-border-color:#262626;
-  --bs-accordion-btn-icon: url(img/sidebar.png);
-  --bs-accordion-btn-active-icon: url(img/sidebar-active.png);
+    --bs-link-color: #262626;
+    --bs-accordion-active-color: #ffea62;
+    --bs-accordion-btn-bg: #262626;
+    --bs-accordion-btn-color: #ffea62;
+    --bs-accordion-active-bg: #262626;
+    --bs-accordion-btn-focus-box-shadow: #262626;
+    --bs-accordion-bg: #ffea62;
+    --bs-accordion-border-color: #262626;
+    --bs-accordion-btn-icon: url(img/sidebar.png);
+    --bs-accordion-btn-active-icon: url(img/sidebar-active.png);
 }
 
 div.accordion:first-child {
-  margin-top: 40px;
+    margin-top: 40px;
 }
 
 button.accordion-button {
-  font-size: 1.3rem;
+    font-size: 1.3rem;
 }
 
 .accordion a {
-  text-decoration-line: none;
+    text-decoration-line: none;
 }
 
 .accordion a:hover {
-  color: #ff5100;
+    color: #ff5100;
 }
 
 /* 헤더 */
 .headerNav {
-  width: 100%;
-  height: 70px;
-  background-color: #262626;
-  font-family: 'KimjungchulGothic-Bold';
-  font-size: 1.5rem;
-  display: flex;
-  flex-direction: row;
+    width: 100%;
+    height: 70px;
+    background-color: #262626;
+    font-family: 'LINESeedKR-Bd';
+    font-size: 1.5rem;
+    display: inline;
+    flex-direction: row;
 }
 
 .headerNav img {
-  height: 100%;
-  width: 250px;
+    height: 100%;
+    width: 250px;
 }
 
 .headerNav p {
-  margin-left: 40px;
-  color: #ffea62;
-  font-size: 30px;
+    display: inline-block;
+    align-items: center;
+    margin-top: 12px;
+    margin-left: 40px;
+    color: #ffea62;
+    font-size: 30px;
 }
 
 /* 콘텐츠 */
 .contents {
-  width: 100%;
+    width: 100%;
 }
 
 /* input 영역 */
 .inputArea {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #eae8e8;
-  height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eae8e8;
+    height: 100px;
 }
 
 
 .info ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .info li {
-  list-style:none;
-  margin-right: 20px;
+    list-style: none;
+    margin-right: 20px;
 }
 
 #dropdown-basic {
-  background-color: #262626;
-  border: #262626;
-  color: #ffea62;
-  border-radius: 35px;
-  --bs-dropdown-link-active-bg: #ffea62;
+    background-color: #262626;
+    border: #262626;
+    color: #ffea62;
+    border-radius: 35px;
+    --bs-dropdown-link-active-bg: #ffea62;
 }
 
 .buttonArea {
-  width: 40%;
-  text-align: center;
+    width: 40%;
+    text-align: center;
 }
 
 .buttonArea button {
-  /*justify-content: center;*/
-  margin-right: 20px;
-  background-color: #262626;
-  color: #ffea62;
-  border: #262626;
-  border-radius: 35px;
-  width: 70px;
+    /*justify-content: center;*/
+    margin-right: 20px;
+    background-color: #262626;
+    color: #ffea62;
+    border: #262626;
+    border-radius: 35px;
+    width: 70px;
 }
 
 /* output 영역 */
 .outputArea {
-  padding: 30px;
-  text-align: center;
+    padding: 30px;
+    text-align: center;
 }
 
 .outputArea thead {
-  background-color: #ffea62;
-  font-size: 1.2em;
+    background-color: #ffea62;
+    font-size: 1.2em;
 }

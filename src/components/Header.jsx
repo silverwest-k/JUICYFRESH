@@ -1,7 +1,7 @@
 import logo from "../img/logo.png";
 
 function Header() {
-    return(
+    return (
         <div className="headerNav">
             <img src={logo}/>
             <p>수주관리</p>
