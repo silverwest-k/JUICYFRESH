@@ -46,6 +46,7 @@ function Orderview() {
 
           <div className="buttonArea">
             <Button variant="primary">조회</Button>
+            <img className="excel-icon" src={require('../img/excel.jpeg')} />
           </div>
         </div>
 
