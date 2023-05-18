@@ -1,28 +1,36 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
+import * as xlsx from "xlsx";
 
 // 수주관리
 function Obtain() {
 
+  // 엑셀 다운받기 함수
+  const excelDownload = (arr) => {
+    const ws = xlsx.utils.aoa_to_sheet(arr);
+    const wb = xlsx.utils.book_new();
+
+    xlsx.utils.book_append_sheet(wb, ws, "sheet1");
+    xlsx.writeFile(wb, `수주관리_${Date.now()}.xlsx`);
+  };
+
   return(
       <>
       <div className="inputArea">
-        <div className="info">
           <ul>
             <li>품목명 <input/></li>
             <li>수량 <input/></li>
             <li>납기일 <input type="date"/></li>
           </ul>
-        </div>
 
-        <div className="buttonArea">
           <Button variant="primary">등록</Button>
           <Button variant="primary">수정</Button>
           <Button variant="primary">삭제</Button>
           <Button variant="primary">확정</Button>
-          <img className="excel-icon" src={require('../img/excel.jpeg')} />
-        </div>
+            <img className="excel-icon" src={require('../img/excel.jpeg')}
+                 onClick={()=> excelDownload(Table)}
+            />
       </div>
 
      <div className="outputArea">

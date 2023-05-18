@@ -2,14 +2,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import Dropdown from 'react-bootstrap/Dropdown';
+import {useState} from "react";
 
 // 수주현황
 function Obtainview() {
 
+  const [selectMenu, setSelectMenu] = useState();
+  const handleMenu = (e) => {
+    const menu = e.target.textContent;
+    setSelectMenu(menu)
+    console.log(menu);
+  }
+
   return(
       <>
         <div className="inputArea">
-          <div className="info">
 
             <ul>
               <li>
@@ -19,9 +26,9 @@ function Obtainview() {
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
-                    <Dropdown.Item>제품명</Dropdown.Item>
-                    <Dropdown.Item>업체명</Dropdown.Item>
-                    <Dropdown.Item>전 체</Dropdown.Item>
+                    <Dropdown.Item onClick={handleMenu}>제품명</Dropdown.Item>
+                    <Dropdown.Item onClick={handleMenu}>업체명</Dropdown.Item>
+                    <Dropdown.Item onClick={handleMenu}>전 체</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </li>
@@ -29,12 +36,9 @@ function Obtainview() {
               <li>납기일 <input type="date"/></li>
               <li> ~ <input type="date"/></li>
             </ul>
-          </div>
 
-          <div className="buttonArea">
             <Button variant="primary">조회</Button>
             <img className="excel-icon" src={require('../img/excel.jpeg')} />
-          </div>
         </div>
 
         <div className="outputArea">

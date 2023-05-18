@@ -104,13 +104,14 @@ button.accordion-button {
     height: 100px;
 }
 
-.info ul {
+.inputArea ul {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 0;
 }
 
-.info li {
+.inputArea li {
     font-size: 1rem;
     list-style: none;
     margin-right: 20px;
@@ -129,12 +130,7 @@ div.dropdown-menu {
     --bs-dropdown-link-hover-bg: #ffea62;
 }
 
-.buttonArea {
-    width: 40%;
-    text-align: center;
-}
-
-.buttonArea button {
+.inputArea button {
     margin-right: 20px;
     background-color: #262626;
     color: #ffea62;
