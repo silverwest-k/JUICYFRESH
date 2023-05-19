@@ -54,7 +54,7 @@ function Sidebar() {
 
                 <Accordion.Item eventKey="6" className="accordion accordion-flush">
                     <Accordion.Header> - 기준정보관리</Accordion.Header>
-                    <Link to=""><Accordion.Body>기준정보현황</Accordion.Body></Link>
+                    <Link to="/masterdata"><Accordion.Body>기준정보현황</Accordion.Body></Link>
                 </Accordion.Item>
             </Accordion>
             </div>

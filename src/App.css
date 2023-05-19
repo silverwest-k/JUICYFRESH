@@ -98,23 +98,13 @@ button.accordion-button {
 /* Contents > input 영역 */
 .inputArea {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     background-color: #eae8e8;
     height: 100px;
-}
-
-.inputArea ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: 0;
-}
-
-.inputArea li {
     font-size: 1rem;
     list-style: none;
-    margin-right: 20px;
+    padding: 0 10%;
 }
 
 #dropdown-basic {
@@ -153,7 +143,7 @@ div.dropdown-menu {
 
 /* Contents > output 영역 */
 .outputArea {
-    padding: 30px;
+    padding: 50PX 7%;
     text-align: center;
 }
 

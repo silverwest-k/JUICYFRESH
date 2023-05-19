@@ -7,35 +7,31 @@ import {useState} from "react";
 // 수주현황
 function Obtainview() {
 
-  const [selectMenu, setSelectMenu] = useState();
-  const handleMenu = (e) => {
-    const menu = e.target.textContent;
-    setSelectMenu(menu)
-    console.log(menu);
+  // 드롭다운 메뉴 선택
+  const selectMenu = (eventKey) => {
+    console.log(eventKey);
   }
 
   return(
       <>
         <div className="inputArea">
 
-            <ul>
-              <li>
-                <Dropdown>
-                  <Dropdown.Toggle variant="success" id="dropdown-basic">
-                    구분
-                  </Dropdown.Toggle>
+          <Dropdown>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              구분
+            </Dropdown.Toggle>
 
-                  <Dropdown.Menu>
-                    <Dropdown.Item onClick={handleMenu}>제품명</Dropdown.Item>
-                    <Dropdown.Item onClick={handleMenu}>업체명</Dropdown.Item>
-                    <Dropdown.Item onClick={handleMenu}>전 체</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </li>
-              <li><input/></li>
-              <li>납기일 <input type="date"/></li>
-              <li> ~ <input type="date"/></li>
-            </ul>
+            <input/>
+
+            <Dropdown.Menu onSelect={selectMenu}>
+              <Dropdown.Item eventKey="productName">제품명</Dropdown.Item>
+              <Dropdown.Item eventKey="companyName">업체명</Dropdown.Item>
+              <Dropdown.Item eventKey="all">전 체</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+
+          납기일 <input type="date"/>
+              ~ <input type="date"/>
 
             <Button variant="primary">조회</Button>
             <img className="excel-icon" src={require('../img/excel.jpeg')} />

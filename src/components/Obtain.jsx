@@ -18,11 +18,10 @@ function Obtain() {
   return(
       <>
       <div className="inputArea">
-          <ul>
-            <li>품목명 <input/></li>
-            <li>수량 <input/></li>
-            <li>납기일 <input type="date"/></li>
-          </ul>
+
+          품목명 <input/>
+          수량 <input/>
+          납기일 <input type="date"/>
 
           <Button variant="primary">등록</Button>
           <Button variant="primary">수정</Button>
