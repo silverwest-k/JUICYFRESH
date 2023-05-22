@@ -1,8 +1,8 @@
 import {Route, Routes} from "react-router-dom";
-import Obtain from "./Obtain";
-import Obtainview from "./Obtainview";
-import Orderview from "./Orderview";
-import Masterdata from "./Masterdata";
+import Obtain from "../MODULES/Obtain";
+import Obtainview from "../MODULES/Obtainview";
+import Orderview from "../MODULES/Orderview";
+import Masterdata from "../MODULES/Masterdata";
 
 function Contents() {
 

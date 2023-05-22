@@ -39,7 +39,7 @@ function Orderview() {
                 ~ <input type="date"/>
 
                 <Button variant="primary">조회</Button>
-                <img className="excel-icon" src={require('../img/excel.jpeg')}/>
+                <img className="excel-icon" src={require('../../img/excel.jpeg')}/>
             </div>
 
             <div className="outputArea">

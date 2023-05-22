@@ -27,7 +27,7 @@ function Obtain() {
           <Button variant="primary">수정</Button>
           <Button variant="primary">삭제</Button>
           <Button variant="primary">확정</Button>
-            <img className="excel-icon" src={require('../img/excel.jpeg')}
+            <img className="excel-icon" src={require('../../img/excel.jpeg')}
                  onClick={()=> excelDownload(Table)}
             />
       </div>

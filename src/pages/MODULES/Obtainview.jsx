@@ -1,40 +1,20 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
-import Dropdown from 'react-bootstrap/Dropdown';
-import {useState} from "react";
 
 // 수주현황
 function Obtainview() {
-
-  // 드롭다운 메뉴 선택
-  const selectMenu = (eventKey) => {
-    console.log(eventKey);
-  }
 
   return(
       <>
         <div className="inputArea">
 
-          <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              구분
-            </Dropdown.Toggle>
-
-            <input/>
-
-            <Dropdown.Menu onSelect={selectMenu}>
-              <Dropdown.Item eventKey="productName">제품명</Dropdown.Item>
-              <Dropdown.Item eventKey="companyName">업체명</Dropdown.Item>
-              <Dropdown.Item eventKey="all">전 체</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
 
           납기일 <input type="date"/>
               ~ <input type="date"/>
 
             <Button variant="primary">조회</Button>
-            <img className="excel-icon" src={require('../img/excel.jpeg')} />
+            <img className="excel-icon" src={require('../../img/excel.jpeg')} />
         </div>
 
         <div className="outputArea">
