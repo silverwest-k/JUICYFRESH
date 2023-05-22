@@ -115,7 +115,7 @@ button.accordion-button {
     border-radius: 35px;
 }
 
-.select {
+.selectButton {
     background-color: #262626;
     border: #262626;
     color: #ffea62;
@@ -125,6 +125,11 @@ button.accordion-button {
     text-align: center;
     appearance: none;
 }
+
+/*.selectButton option {*/
+/*    background: white;*/
+/*    color: orange;*/
+/*}*/
 
 div.dropdown-menu {
     --bs-dropdown-link-active-bg: #ff510066;
@@ -138,13 +143,17 @@ div.dropdown-menu {
     color: #ffea62;
     border: #262626;
     border-radius: 35px;
-    width: 70px;
     /* hover */
     --bs-btn-hover-bg: #ffea62;
-    --bs-btn-hover-color:#262626;
+    --bs-btn-hover-color: #262626;
     /* active */
     --bs-btn-active-bg: #262626;
     --bs-btn-active-color: #ffea62;
+}
+
+.inputArea .clicked {
+    background-color: #ffea62;
+    color: #262626;
 }
 
 .excel-icon {

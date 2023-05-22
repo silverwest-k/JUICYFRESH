@@ -38,7 +38,7 @@ function Orderview() {
                 <input type="date"/>
                 ~ <input type="date"/>
 
-                <Button variant="primary">조회</Button>
+                <Button>조회</Button>
                 <img className="excel-icon" src={require('../../img/excel.jpeg')}/>
             </div>
 
@@ -70,18 +70,6 @@ function Orderview() {
                         <td>560</td>
                         <td>2023-05-25</td>
                         <td>2023-05-24</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>230511-002</td>
-                        <td>2023-05-11</td>
-                        <td>2023-05-26</td>
-                        <td>YB-001</td>
-                        <td>석류젤리스틱</td>
-                        <td>쿠팡</td>
-                        <td>850</td>
-                        <td>2023-05-29</td>
-                        <td>2023-05-26</td>
                     </tr>
                     </tbody>
                 </Table>

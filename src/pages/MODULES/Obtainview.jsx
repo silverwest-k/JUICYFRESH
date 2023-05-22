@@ -1,19 +1,38 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
+import {useState} from "react";
 
 // 수주현황
 function Obtainview() {
 
+  const [selectValue, setSelectValue] = useState();
+  const [inputValue, setInputValue] = useState();
+
+  // 조건별 검색
+  // const filterData = () =>{
+  //     console.log("드롭다운값 : " + selectValue + " 인풋값 : " + inputValue);
+  //     fetch("?" + selectValue + "=" + inputValue)
+  //         .then((res) => res.json())
+  //         .then((res) => {setData(res)})
+  // }
+
   return(
       <>
         <div className="inputArea">
+          <select className="selectButton" onChange={(e) => {setSelectValue(e.target.value)}}>
+            <option disabled selected value="default"> 구분 ▼ </option>
+            <option value="">선택1</option>
+            <option value="">선택2</option>
+            <option value="">선택2</option>
+          </select>
 
+          <input onChange={(e) => {setInputValue(e.target.value)}}/>
 
           납기일 <input type="date"/>
               ~ <input type="date"/>
 
-            <Button variant="primary">조회</Button>
+            <Button>조회</Button>
             <img className="excel-icon" src={require('../../img/excel.jpeg')} />
         </div>
 
@@ -33,6 +52,7 @@ function Obtainview() {
               <th>예상납기일</th>
             </tr>
             </thead>
+
             <tbody>
             <tr>
               <td>1</td>
@@ -45,18 +65,6 @@ function Obtainview() {
               <td>560</td>
               <td>2023-05-25</td>
               <td>2023-05-24</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>230511-002</td>
-              <td>2023-05-11</td>
-              <td>2023-05-26</td>
-              <td>YB-001</td>
-              <td>석류젤리스틱</td>
-              <td>쿠팡</td>
-              <td>850</td>
-              <td>2023-05-29</td>
-              <td>2023-05-26</td>
             </tr>
             </tbody>
           </Table>

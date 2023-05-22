@@ -23,13 +23,13 @@ function Obtain() {
           수량 <input/>
           납기일 <input type="date"/>
 
-          <Button variant="primary">등록</Button>
-          <Button variant="primary">수정</Button>
-          <Button variant="primary">삭제</Button>
-          <Button variant="primary">확정</Button>
-            <img className="excel-icon" src={require('../../img/excel.jpeg')}
-                 onClick={()=> excelDownload(Table)}
-            />
+          <Button>등록</Button>
+          <Button>수정</Button>
+          <Button>삭제</Button>
+          <Button>확정</Button>
+          <img className="excel-icon" src={require('../../img/excel.jpeg')}
+             onClick={()=> excelDownload(Table)}
+          />
       </div>
 
      <div className="outputArea">
@@ -58,61 +58,6 @@ function Obtain() {
             <td>560</td>
             <td>2023-05-25</td>
             <td>2023-05-24</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>230511-002</td>
-            <td>2023-05-11</td>
-            <td>YB-001</td>
-            <td>석류젤리스틱</td>
-            <td>쿠팡</td>
-            <td>850</td>
-            <td>2023-05-29</td>
-            <td>2023-05-26</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>230511-001</td>
-            <td>2023-05-11</td>
-            <td>YB-001</td>
-            <td>양배추즙</td>
-            <td>11번가</td>
-            <td>560</td>
-            <td>2023-05-25</td>
-            <td>2023-05-24</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>230511-002</td>
-            <td>2023-05-11</td>
-            <td>YB-001</td>
-            <td>석류젤리스틱</td>
-            <td>쿠팡</td>
-            <td>850</td>
-            <td>2023-05-29</td>
-            <td>2023-05-26</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>230511-001</td>
-            <td>2023-05-11</td>
-            <td>YB-001</td>
-            <td>양배추즙</td>
-            <td>11번가</td>
-            <td>560</td>
-            <td>2023-05-25</td>
-            <td>2023-05-24</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>230511-002</td>
-            <td>2023-05-11</td>
-            <td>YB-001</td>
-            <td>석류젤리스틱</td>
-            <td>쿠팡</td>
-            <td>850</td>
-            <td>2023-05-29</td>
-            <td>2023-05-26</td>
           </tr>
         </tbody>
        </Table>
