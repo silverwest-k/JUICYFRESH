@@ -1,5 +1,7 @@
 import {useEffect, useState} from "react";
 import Table from "react-bootstrap/Table";
+// import { saveAs } from 'file-saver';
+// import XLSX from 'xlsx';
 
 function Process() {
     const [data, setData] = useState([]);
@@ -9,6 +11,20 @@ function Process() {
             .then((res) => res.json())
             .then((res) => {setData(res)})
     }, []);
+
+    // const downloadExcel = () => {
+    //     const workbook = XLSX.utils.book_new();
+    //     const worksheet = XLSX.utils.json_to_sheet(data);
+    //
+    //     XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+    //     const excelBuffer = XLSX.write(workbook, {
+    //         bookType: "xlsx",
+    //         type: "array",
+    //     });
+    //
+    //     const dataBlob = new Blob([excelBuffer], { type: "application/octet-stream" });
+    //     saveAs(dataBlob, "data.xlsx");
+    // };
 
     return(
         <>
@@ -55,8 +71,6 @@ function Process() {
                     </tbody>
                 </Table>
             </div>
-
-
         </>
     )
 }

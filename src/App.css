@@ -178,6 +178,9 @@ div.dropdown-menu {
 .outputArea thead {
     background-color: #ffea62;
     font-size: 1.2em;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .outputArea tbody {

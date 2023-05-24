@@ -1,19 +1,26 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
-import * as xlsx from "xlsx";
+// import { saveAs } from 'file-saver';
+// import XLSX from 'xlsx';
 
 // 수주관리
 function Obtain() {
 
-  // 엑셀 다운받기 함수
-  const excelDownload = (arr) => {
-    const ws = xlsx.utils.aoa_to_sheet(arr);
-    const wb = xlsx.utils.book_new();
-
-    xlsx.utils.book_append_sheet(wb, ws, "sheet1");
-    xlsx.writeFile(wb, `수주관리_${Date.now()}.xlsx`);
-  };
+  // // 엑셀 다운받기 함수
+  //   const downloadExcel = () => {
+  //       const wb = XLSX.utils.book_new();
+  //       const ws = XLSX.utils.json_to_sheet(data);
+  //
+  //       XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+  //       const excelBuffer = XLSX.write(wb, {
+  //           bookType: "xlsx",
+  //           type: "array",
+  //       });
+  //
+  //       const dataBlob = new Blob([excelBuffer], { type: "application/octet-stream" });
+  //       saveAs(dataBlob, `data_${Date.now()}.xlsx`);
+  //   };
 
   return(
       <>
@@ -28,7 +35,7 @@ function Obtain() {
           <Button>삭제</Button>
           <Button>확정</Button>
           <img className="excel-icon" src={require('../../img/excel.jpeg')}
-             onClick={()=> excelDownload(Table)}
+
           />
       </div>
 

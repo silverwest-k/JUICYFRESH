@@ -1,9 +1,47 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button} from "react-bootstrap";
 import {Link, Outlet} from "react-router-dom";
-import {useState} from "react";
+import React, {useState} from "react";
 
 // 기준정보관리
+const buttonRepasitory = [
+    {
+        buttonPk : 1,
+        buttonName : "품목현황",
+        buttonRoute : "product"
+    },
+    {
+        buttonPk : 2,
+        buttonName : "설비현황",
+        buttonRoute : "facility"
+    },
+    {
+        buttonPk : 3,
+        buttonName : "공정현황",
+        buttonRoute : "process"
+    },
+    {
+        buttonPk : 4,
+        buttonName : "라우팅현황",
+        buttonRoute : "routing"
+    },
+    {
+        buttonPk : 5,
+        buttonName : "BOM",
+        buttonRoute : "bom"
+    },
+    {
+        buttonPk : 6,
+        buttonName : "업체현황",
+        buttonRoute : "enterprise"
+    },
+    {
+        buttonPk : 7,
+        buttonName : "고객현황",
+        buttonRoute : "customer"
+    }
+]
+
 function DataIndex() {
 
     const [activeButton, setActiveButton] = useState("");
@@ -15,41 +53,16 @@ function DataIndex() {
     return (
         <>
             <div className="inputArea">
-                <Link to="/dataindex/product">
-                    <Button className={activeButton === "product" ? "clicked" : ""}
-                            onClick={() => handleButtonClick("product")}
-                    >품목현황</Button>
-                </Link>
-                <Link to="/dataindex/facility">
-                    <Button className={activeButton === "facility" ? "clicked" : ""}
-                            onClick={() => handleButtonClick("facility")}
-                    >설비현황</Button>
-                </Link>
-                <Link to="/dataindex/process">
-                    <Button className={activeButton === "process" ? "clicked" : ""}
-                            onClick={() => handleButtonClick("process")}
-                    >공정현황</Button>
-                </Link>
-                <Link to="/dataindex/routing">
-                    <Button className={activeButton === "routing" ? "clicked" : ""}
-                            onClick={() => handleButtonClick("routing")}
-                    >라우팅현황</Button>
-                </Link>
-                <Link to="/dataindex/bom">
-                    <Button className={activeButton === "bom" ? "clicked" : ""}
-                             onClick={() => handleButtonClick("bom")}
-                    >BOM현황</Button>
-                </Link>
-                <Link to="/dataindex/enterprise">
-                    <Button className={activeButton === "enterprise" ? "clicked" : ""}
-                             onClick={() => handleButtonClick("enterprise")}
-                    >업체현황</Button>
-                </Link>
-                <Link to="/dataindex/customer">
-                    <Button  className={activeButton === "customer" ? "clicked" : ""}
-                             onClick={() => handleButtonClick("customer")}
-                    >고객현황</Button>
-                </Link>
+                {buttonRepasitory.map((item) => (
+                    <Link to={`/dataindex/${item.buttonRoute}`}>
+                        <Button className={activeButton === item.buttonPk ? "clicked" : ""}
+                                onClick={()=> handleButtonClick(item.buttonPk) }
+                        > {item.buttonName}
+                        </Button>
+                    </Link>
+                ))
+                }
+
                 <img className="excel-icon" src={require('../../../img/excel.jpeg')}/>
             </div>
 
