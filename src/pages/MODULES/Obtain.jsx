@@ -9,13 +9,27 @@ import * as XLSX from "xlsx";
 function Obtain() {
 
     const [data, setData] = useState([]);
+    const [itemName, setItemName] = useState();
+    const [obtainAmount, setObtainAmount] = useState();
+    const [obtainDate, setObtainDate] = useState();
 
-    // 데이터 받아오기
+    // 데이터 받아서 테이블생성
     useEffect(() => {
         fetch("http://localhost:8282/juicyfresh/obtain/list")
             .then((res) => res.json())
             .then((res) => {setData(res)})
     }, []);
+
+    // 수주입력 데이터 보내기
+    const addObtain = () => {
+        fetch("http://localhost:8282/juicyfresh/obtain/add", {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({itemName: itemName, obtainAmount: obtainAmount})
+        })
+    }
 
     // 엑셀 다운받기 함수
     const downloadExcel = () => {
@@ -37,11 +51,11 @@ function Obtain() {
       <>
       <div className="inputArea">
 
-          품목명 <input/>
-          수량 <input/>
-          납기일 <input type="date"/>
+          제품명 <input onChange={(e) => {setItemName(e.currentTarget.value)}} />
+          수량 <input onChange={(e) => {setObtainAmount(e.currentTarget.value)}} />
+          {/*납기일 <input type="date"  onChange={(e) => {setObtainDate(e.currentTarget.value)}} />*/}
 
-          <Button>등록</Button>
+          <Button onClick={() => {addObtain()}}>등록</Button>
           <Button>수정</Button>
           <Button>삭제</Button>
           <Button>확정</Button>
