@@ -22,9 +22,8 @@ function Obtainview() {
         <div className="inputArea">
           <select className="selectButton" onChange={(e) => {setSelectValue(e.target.value)}}>
             <option disabled selected value="default"> 구분 ▼ </option>
-            <option value="">선택1</option>
-            <option value="">선택2</option>
-            <option value="">선택2</option>
+            <option value="itemName">제품명</option>
+            <option value="customerName">고객사명</option>
           </select>
 
           <input onChange={(e) => {setInputValue(e.target.value)}}/>
@@ -32,7 +31,7 @@ function Obtainview() {
           납기일 <input type="date"/>
               ~ <input type="date"/>
 
-            <Button>조회</Button>
+            <Button>검색</Button>
             <img className="excel-icon" src={require('../../img/excel.jpeg')} />
         </div>
 

@@ -11,7 +11,7 @@ function Obtain() {
     const [data, setData] = useState([]);
     const [itemName, setItemName] = useState();
     const [obtainAmount, setObtainAmount] = useState();
-    const [obtainDate, setObtainDate] = useState();
+    const [customerRequestDate, setCustomerRequestDate] = useState();
 
     // 데이터 받아서 테이블생성
     useEffect(() => {
@@ -27,7 +27,7 @@ function Obtain() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({itemName: itemName, obtainAmount: obtainAmount})
+            body: JSON.stringify({itemName: itemName, obtainAmount: obtainAmount, customerRequestDate:customerRequestDate})
         })
     }
 
@@ -46,22 +46,30 @@ function Obtain() {
         saveAs(dataBlob, `수주관리_${Date.now()}.xlsx`);
     };
 
-
   return(
       <>
       <div className="inputArea">
 
-          {/*제품명 <input onChange={(e) => {setItemName(e.currentTarget.value)}} />*/}
           <select className="selectButton" onChange={(e) => {setItemName(e.currentTarget.value)}}>
               <option disabled selected value="default"> 제품명 ▼ </option>
               <option value="양배추즙">양배추즙</option>
               <option value="흑마늘즙">흑마늘즙</option>
-              <option value="석류젤리스틱">석류젤리스틱</option>
-              <option value="매실젤리스틱">매실젤리스틱</option>
+              <option value="석류젤리스틱">석류 젤리스틱</option>
+              <option value="매실젤리스틱">매실 젤리스틱</option>
           </select>
           
           수량 <input onChange={(e) => {setObtainAmount(e.currentTarget.value)}} />
-          납기일 <input type="date"  onChange={(e) => {setObtainDate(e.currentTarget.value)}} />
+
+
+          {/*납기일 <input type="date"  onChange={(e) => {setObtainDate(e.currentTarget.value)}} />*/}
+          납기일 <input type="date" onChange={(e) => {
+          const selectedDate = new Date(e.currentTarget.value);
+          selectedDate.setHours(0, 0, 0);
+          const formattedDate = selectedDate.toISOString();
+          setCustomerRequestDate(formattedDate);
+          }} />
+
+
 
           <Button onClick={() => {addObtain()}}>등록</Button>
           <Button>수정</Button>
