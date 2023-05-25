@@ -51,9 +51,17 @@ function Obtain() {
       <>
       <div className="inputArea">
 
-          제품명 <input onChange={(e) => {setItemName(e.currentTarget.value)}} />
+          {/*제품명 <input onChange={(e) => {setItemName(e.currentTarget.value)}} />*/}
+          <select className="selectButton" onChange={(e) => {setItemName(e.currentTarget.value)}}>
+              <option disabled selected value="default"> 제품명 ▼ </option>
+              <option value="양배추즙">양배추즙</option>
+              <option value="흑마늘즙">흑마늘즙</option>
+              <option value="석류젤리스틱">석류젤리스틱</option>
+              <option value="매실젤리스틱">매실젤리스틱</option>
+          </select>
+          
           수량 <input onChange={(e) => {setObtainAmount(e.currentTarget.value)}} />
-          {/*납기일 <input type="date"  onChange={(e) => {setObtainDate(e.currentTarget.value)}} />*/}
+          납기일 <input type="date"  onChange={(e) => {setObtainDate(e.currentTarget.value)}} />
 
           <Button onClick={() => {addObtain()}}>등록</Button>
           <Button>수정</Button>
