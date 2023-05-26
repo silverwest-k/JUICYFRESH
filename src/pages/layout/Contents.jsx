@@ -10,12 +10,14 @@ import Routing from "../MODULES/Masterdata/Routing";
 import Bom from "../MODULES/Masterdata/Bom";
 import Enterprise from "../MODULES/Masterdata/Enterprise";
 import Customer from "../MODULES/Masterdata/Customer";
+import Main from "../MODULES/Main";
 
 function Contents() {
 
     return (
         <div className="contents">
             <Routes>
+                <Route path="/" Component={Main}></Route>
                 <Route path="/obtain" Component={Obtain}></Route>
                 <Route path="/obtainview" Component={Obtainview}></Route>
                 <Route path="/orderview" Component={Orderview}></Route>

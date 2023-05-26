@@ -1,48 +1,83 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 // 수주현황
 function Obtainview() {
 
+  const [selectCategory, setSelectCategory] = useState();
   const [selectValue, setSelectValue] = useState();
-  const [inputValue, setInputValue] = useState();
+  const [data, setData] = useState([]);
 
-  // 조건별 검색
-  // const filterData = () =>{
-  //     console.log("드롭다운값 : " + selectValue + " 인풋값 : " + inputValue);
-  //     fetch("?" + selectValue + "=" + inputValue)
-  //         .then((res) => res.json())
-  //         .then((res) => {setData(res)})
-  // }
+  // 데이터 받아서 테이블생성
+  useEffect(() => {
+    fetch("http://localhost:8282/juicyfresh/obtain/list")
+        .then((res) => res.json())
+        .then((res) => {setData(res)})
+  }, []);
+
+ // 조건부 검색
+  const filterData = async () => {
+    const searchDTO = {
+      searchBy: selectCategory,
+      searchQuery : selectValue
+    };
+    try {
+      const response = await axios.post('http://localhost:8282/juicyfresh/obtain/search/list', searchDTO, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      const obtainList = response.data;
+      setData(obtainList);
+      console.log(searchDTO);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return(
       <>
         <div className="inputArea">
-          <select className="selectButton" onChange={(e) => {setSelectValue(e.target.value)}}>
+          <select className="selectButton" onChange={(e) => {setSelectCategory(e.target.value)}}>
             <option disabled selected value="default"> 구분 ▼ </option>
-            <option value="itemName">제품명</option>
-            <option value="customerName">고객사명</option>
+            <option value="제품명">제품명</option>
+            <option value="고객사명">고객사명</option>
           </select>
 
-          <input onChange={(e) => {setInputValue(e.target.value)}}/>
+          <select className="selectButton"
+                  onChange={(e) => {setSelectValue(e.target.value)}}
+                  onClick={filterData}
+          >
+            <option disabled selected value="default"> 검색명 ▼ </option>
+            {selectCategory === "제품명" ? (
+                <>
+                  <option value="양배추즙">양배추즙</option>
+                  <option value="흑마늘즙">흑마늘즙</option>
+                  <option value="석류 젤리스틱">석류 젤리스틱</option>
+                  <option value="매실 젤리스틱">매실 젤리스틱</option>
+                </>
+            ) : null}
+            {selectCategory === "고객사명" ? (
+                <>
+                  <option value="쿠팡">쿠팡</option>
+                  <option value="11번가">11번가</option>
+                </>
+            ) : null}
+          </select>
 
-          납기일 <input type="date"/>
-              ~ <input type="date"/>
-
-            <Button>검색</Button>
-            <img className="excel-icon" src={require('../../img/excel.jpeg')} />
+          <img className="excel-icon" src={require('../../img/excel.jpeg')} />
         </div>
 
         <div className="outputArea">
-          <Table striped bordered hover>
+          <Table striped bordered hover id="dataTable">
             <thead>
             <tr>
               <th>No.</th>
               <th>수주번호</th>
-              <th>수주날짜</th>
-              <th>수주확정일</th>
+              <th>수주일</th>
               <th>품목코드</th>
               <th>제품명</th>
               <th>고객사명</th>
@@ -53,18 +88,22 @@ function Obtainview() {
             </thead>
 
             <tbody>
-            <tr>
-              <td>1</td>
-              <td>230511-001</td>
-              <td>2023-05-11</td>
-              <td>2023-05-24</td>
-              <td>YB-001</td>
-              <td>양배추즙</td>
-              <td>11번가</td>
-              <td>560</td>
-              <td>2023-05-25</td>
-              <td>2023-05-24</td>
-            </tr>
+            {data?.map((item, index) => {
+              return(
+                  <tr key={index}>
+                    <td>{index+1}</td>
+                    <td>{item.obtainId}</td>
+                    <td>{item.obtainDate.split("T")[0]}</td>
+                    <td>{item.item.itemCode}</td>
+                    <td>{item.item.itemName}</td>
+                    <td>{item.customer.customerName}</td>
+                    <td>{item.obtainAmount}</td>
+                    <td>{item.customerRequestDate.split("T")[0]}</td>
+                    <td>{item.expectDate.split("T")[0]}</td>
+                  </tr>
+              )
+            })
+            }
             </tbody>
           </Table>
         </div>
