@@ -7,10 +7,10 @@ import axios from "axios";
 // 수주현황
 function Obtainview() {
 
-  const [selectCategory, setSelectCategory] = useState();
-  const [selectValue, setSelectValue] = useState();
-  const [afterDate, setAfterDate] = useState();
-  const [beforeDate, setBeforeDate] = useState();
+  const [selectCategory, setSelectCategory] = useState(null);
+  const [selectValue, setSelectValue] = useState(null);
+  const [afterDate, setAfterDate] = useState(null);
+  const [beforeDate, setBeforeDate] = useState(null);
   const [data, setData] = useState([]);
 
   // 데이터 받아서 테이블생성
@@ -46,27 +46,19 @@ function Obtainview() {
       <>
         <div className="inputArea">
           <select className="selectButton" onChange={(e) => {setSelectCategory(e.target.value)}}>
-            <option disabled selected value="default"> 구분 ▼ </option>
-            <option value="제품명">제품명</option>
-            <option value="업체명">업체명</option>
+            <option disabled selected value="default"> 제품명 ▼ </option>
+            <option value="양배추즙">양배추즙</option>
+            <option value="흑마늘즙">흑마늘즙</option>
+            <option value="석류 젤리스틱">석류 젤리스틱</option>
+            <option value="매실 젤리스틱">매실 젤리스틱</option>
+            <option value="전체">전체</option>
           </select>
 
           <select className="selectButton" onChange={(e) => {setSelectValue(e.target.value)}}>
-            <option disabled selected value="default"> 검색명 ▼ </option>
-            {selectCategory === "제품명" ? (
-                <>
-                  <option value="양배추즙">양배추즙</option>
-                  <option value="흑마늘즙">흑마늘즙</option>
-                  <option value="석류 젤리스틱">석류 젤리스틱</option>
-                  <option value="매실 젤리스틱">매실 젤리스틱</option>
-                </>
-            ) : null}
-            {selectCategory === "업체명" ? (
-                <>
-                  <option value="쿠팡">쿠팡</option>
-                  <option value="11번가">11번가</option>
-                </>
-            ) : null}
+            <option disabled selected value="default"> 업체명 ▼ </option>
+            <option value="11번가">11번가</option>
+            <option value="쿠팡">쿠팡</option>
+            <option value="전체">전체</option>
           </select>
           
           <input type="date" onChange={(e) => {setAfterDate(e.target.value)}}/>

@@ -29,16 +29,15 @@ function Sidebar() {
 
                 <Accordion.Item eventKey="2" className="accordion accordion-flush">
                     <Accordion.Header> - 재고관리</Accordion.Header>
-                    <Link to=""><Accordion.Body onClick={menuName}>원자재현황</Accordion.Body></Link>
-                    <Link to=""><Accordion.Body onClick={menuName}>원자재 입・출고관리</Accordion.Body></Link>
                     <Link to=""><Accordion.Body onClick={menuName}>완제품재고현황</Accordion.Body></Link>
+                    <Link to=""><Accordion.Body onClick={menuName}>원자재재고현황</Accordion.Body></Link>
+                    <Link to=""><Accordion.Body onClick={menuName}>원자재 입・출고관리</Accordion.Body></Link>
                 </Accordion.Item>
 
                 <Accordion.Item eventKey="3" className="accordion accordion-flush">
                     <Accordion.Header> - 출하관리</Accordion.Header>
                     <Link to=""><Accordion.Body onClick={menuName}>출하대기제품현황</Accordion.Body></Link>
-                    <Link to=""><Accordion.Body onClick={menuName}>생산실적조회</Accordion.Body></Link>
-                    <Link to=""><Accordion.Body onClick={menuName}>LOT관리</Accordion.Body></Link>
+                    <Link to=""><Accordion.Body onClick={menuName}>출하이력</Accordion.Body></Link>
                 </Accordion.Item>
 
                 <Accordion.Item eventKey="4" className="accordion accordion-flush">
