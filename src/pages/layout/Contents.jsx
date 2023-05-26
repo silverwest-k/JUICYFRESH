@@ -10,7 +10,7 @@ import Routing from "../MODULES/Masterdata/Routing";
 import Bom from "../MODULES/Masterdata/Bom";
 import Enterprise from "../MODULES/Masterdata/Enterprise";
 import Customer from "../MODULES/Masterdata/Customer";
-import Main from "../MODULES/Main";
+import Main from "./Main";
 
 function Contents() {
 

@@ -9,6 +9,8 @@ function Obtainview() {
 
   const [selectCategory, setSelectCategory] = useState();
   const [selectValue, setSelectValue] = useState();
+  const [afterDate, setAfterDate] = useState();
+  const [beforeDate, setBeforeDate] = useState();
   const [data, setData] = useState([]);
 
   // 데이터 받아서 테이블생성
@@ -22,7 +24,9 @@ function Obtainview() {
   const filterData = async () => {
     const searchDTO = {
       searchBy: selectCategory,
-      searchQuery : selectValue
+      searchQuery : selectValue,
+      searchAfterDateType : afterDate,
+      searchBeforeDateType : beforeDate
     };
     try {
       const response = await axios.post('http://localhost:8282/juicyfresh/obtain/search/list', searchDTO, {
@@ -44,13 +48,10 @@ function Obtainview() {
           <select className="selectButton" onChange={(e) => {setSelectCategory(e.target.value)}}>
             <option disabled selected value="default"> 구분 ▼ </option>
             <option value="제품명">제품명</option>
-            <option value="고객사명">고객사명</option>
+            <option value="업체명">업체명</option>
           </select>
 
-          <select className="selectButton"
-                  onChange={(e) => {setSelectValue(e.target.value)}}
-                  onClick={filterData}
-          >
+          <select className="selectButton" onChange={(e) => {setSelectValue(e.target.value)}}>
             <option disabled selected value="default"> 검색명 ▼ </option>
             {selectCategory === "제품명" ? (
                 <>
@@ -60,13 +61,18 @@ function Obtainview() {
                   <option value="매실 젤리스틱">매실 젤리스틱</option>
                 </>
             ) : null}
-            {selectCategory === "고객사명" ? (
+            {selectCategory === "업체명" ? (
                 <>
                   <option value="쿠팡">쿠팡</option>
                   <option value="11번가">11번가</option>
                 </>
             ) : null}
           </select>
+          
+          <input type="date" onChange={(e) => {setAfterDate(e.target.value)}}/>
+          ~ <input type="date" onChange={(e) => {setBeforeDate(e.target.value)}}/>
+          
+          <Button onClick={filterData}>조회</Button>
 
           <img className="excel-icon" src={require('../../img/excel.jpeg')} />
         </div>
@@ -80,7 +86,7 @@ function Obtainview() {
               <th>수주일</th>
               <th>품목코드</th>
               <th>제품명</th>
-              <th>고객사명</th>
+              <th>업체명</th>
               <th>수량</th>
               <th>납기일</th>
               <th>예상납기일</th>
