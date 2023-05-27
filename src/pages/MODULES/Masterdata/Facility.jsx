@@ -15,7 +15,7 @@ function Facility() {
         <>
 
             <div className="tableArea">
-                <Table striped bordered hover>
+                <Table striped bordered hover id="dataTable">
                     <thead>
                     <tr>
                         <th>No.</th>

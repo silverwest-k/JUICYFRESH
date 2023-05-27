@@ -47,9 +47,8 @@ function Sidebar() {
 
                 <Accordion.Item eventKey="5" className="accordion accordion-flush">
                     <Accordion.Header> - 생산관리</Accordion.Header>
-                    <Link to=""><Accordion.Body onClick={menuName}>생산일정조회</Accordion.Body></Link>
-                    <Link to=""><Accordion.Body onClick={menuName}>생산실적조회</Accordion.Body></Link>
-                    <Link to=""><Accordion.Body onClick={menuName}>LOT관리</Accordion.Body></Link>
+                    <Link to="/productionschedule"><Accordion.Body onClick={menuName}>생산일정조회</Accordion.Body></Link>
+                    <Link to="/productionperformance"><Accordion.Body onClick={menuName}>생산실적조회</Accordion.Body></Link>
                 </Accordion.Item>
 
                 <Accordion.Item eventKey="6" className="accordion accordion-flush">

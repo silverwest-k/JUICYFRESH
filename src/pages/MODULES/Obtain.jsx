@@ -4,6 +4,22 @@ import Table from "react-bootstrap/Table";
 import {useEffect, useState} from "react";
 import { saveAs } from 'file-saver';
 import * as XLSX from "xlsx";
+import ObtainItem from "./ObtainItem";
+
+// 엑셀 다운받기 함수
+export const downloadExcel = () => {
+    const wb = XLSX.utils.book_new();
+    const ws = XLSX.utils.table_to_sheet(document.getElementById("dataTable"));
+
+    XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+    const excelBuffer = XLSX.write(wb, {
+        bookType: "xlsx",
+        type: "array",
+    });
+    const dataBlob = new Blob([excelBuffer], { type: "application/octet-stream" });
+    saveAs(dataBlob, `수주관리_${Date.now()}.xlsx`);
+};
+
 
 // 수주관리
 function Obtain() {
@@ -13,14 +29,33 @@ function Obtain() {
     const [obtainAmount, setObtainAmount] = useState();
     const [customerRequestDate, setCustomerRequestDate] = useState();
 
+    const [selected, setSelected] = useState();
+
+    const onResetStatus = ()=>{
+        setItemName("default")
+        setObtainAmount("")
+        setCustomerRequestDate("")
+    }
+
     // 데이터 받아서 테이블생성
-    const getData = () => {
+    const fetchData = () => {
         fetch("http://localhost:8282/juicyfresh/obtain/list")
             .then((res) => res.json())
             .then((res) => {setData(res)})
     }
 
-    useEffect(() => {getData()}, []);
+    useEffect(() => {fetchData()}, []);
+
+    const deleteObtain = ()=>{
+        if (selected){
+            fetch(`http://localhost:8282/juicyfresh/obtain/delete/${selected}`,{
+                method:"delete"}).then((res) => res.json())
+                .then((res) => {setData(res)})
+        } else {
+            console.log("값을 선택해라~")
+        }
+
+    }
 
     // 수주입력 데이터 보내기
     const addObtain = () => {
@@ -31,28 +66,18 @@ function Obtain() {
             },
             body: JSON.stringify({itemName: itemName, obtainAmount: obtainAmount, customerRequestDate:customerRequestDate})
         })
-            .then(()=> {getData()})
+            .then(()=> {
+                fetchData()
+                onResetStatus();
+            })
     }
-
-    // 엑셀 다운받기 함수
-    const downloadExcel = () => {
-        const wb = XLSX.utils.book_new();
-        const ws = XLSX.utils.table_to_sheet(document.getElementById("dataTable"));
-
-        XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
-        const excelBuffer = XLSX.write(wb, {
-            bookType: "xlsx",
-            type: "array",
-        });
-        const dataBlob = new Blob([excelBuffer], { type: "application/octet-stream" });
-        saveAs(dataBlob, `수주관리_${Date.now()}.xlsx`);
-    };
 
   return(
       <>
       <div className="inputArea">
-
-          <select className="selectButton" onChange={(e) => {setItemName(e.currentTarget.value)}}>
+          <select className="selectButton"
+                  value={itemName}
+                  onChange={(e) => {setItemName(e.currentTarget.value)}}>
               <option disabled selected value="default"> 제품명 ▼ </option>
               <option value="양배추즙">양배추즙</option>
               <option value="흑마늘즙">흑마늘즙</option>
@@ -60,26 +85,26 @@ function Obtain() {
               <option value="매실 젤리스틱">매실 젤리스틱</option>
           </select>
           
-          수량 <input onChange={(e) => {setObtainAmount(e.currentTarget.value)}} />
+          수량 <input value={obtainAmount} onChange={(e) => {setObtainAmount(e.currentTarget.value)}} />
           
-          납기일 <input type="date" onChange={(e) => {
+          납기일 <input value={customerRequestDate} type="date" onChange={(e) => {
           const selectedDate = new Date(e.currentTarget.value);
           selectedDate.setHours(0, 0, 0);
           const formattedDate = selectedDate.toISOString();
           setCustomerRequestDate(formattedDate);
           }} />
 
-
-
           <Button onClick={() => {addObtain()}}>등록</Button>
           <Button>수정</Button>
-          <Button>삭제</Button>
+          <Button onClick={()=>{
+              deleteObtain();
+          }}>삭제</Button>
           <Button>확정</Button>
           <img className="excel-icon" src={require('../../img/excel.jpeg')}
                onClick={downloadExcel}
           />
       </div>
-
+          {selected && `선택된 번호 : ${selected}`}
      <div className="outputArea">
        <Table striped bordered hover id="dataTable">
         <thead>
@@ -95,25 +120,14 @@ function Obtain() {
             <th>예상납기일</th>
           </tr>
         </thead>
-
-           <tbody>
-           {data?.map((item, index) => {
-               return(
-                   <tr key={index}>
-                       <td>{index+1}</td>
-                       <td>{item.obtainId}</td>
-                       <td>{item.obtainDate.split("T")[0]}</td>
-                       <td>{item.item.itemCode}</td>
-                       <td>{item.item.itemName}</td>
-                       <td>{item.customer.customerName}</td>
-                       <td>{item.obtainAmount}</td>
-                       <td>{item.customerRequestDate.split("T")[0]}</td>
-                       <td>{item.expectDate.split("T")[0]}</td>
-                   </tr>
-               )
-           })
-           }
-           </tbody>
+       <tbody>
+       {data?.map((item, index) => {
+           return(
+               <ObtainItem item={item} index={index} setSelected={setSelected}/>
+           )
+       })
+       }
+       </tbody>
        </Table>
       </div>
       </>

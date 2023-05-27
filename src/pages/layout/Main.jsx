@@ -1,8 +1,8 @@
 
 function Main() {
-
     return(
         <>
+            <div id="chart"/>
         </>
     )
 

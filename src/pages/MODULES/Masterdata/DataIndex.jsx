@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button} from "react-bootstrap";
 import {Link, Outlet} from "react-router-dom";
 import React, {useState} from "react";
+import {downloadExcel} from "../Obtain";
 
 // 기준정보관리
 const buttonRepasitory = [
@@ -63,7 +64,8 @@ function DataIndex() {
                 ))
                 }
 
-                <img className="excel-icon" src={require('../../../img/excel.jpeg')}/>
+                <img className="excel-icon" src={require('../../../img/excel.jpeg')} onClick={()=>{
+                    downloadExcel();}}/>
             </div>
 
             <div className="outputArea">

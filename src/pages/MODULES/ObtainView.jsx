@@ -5,7 +5,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 
 // 수주현황
-function Obtainview() {
+function ObtainView() {
 
   const [selectCategory, setSelectCategory] = useState(null);
   const [selectValue, setSelectValue] = useState(null);
@@ -109,4 +109,4 @@ function Obtainview() {
   )
 }
 
-export default Obtainview;
+export default ObtainView;
