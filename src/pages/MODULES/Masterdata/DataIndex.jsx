@@ -64,8 +64,9 @@ function DataIndex() {
                 ))
                 }
 
-                <img className="excel-icon" src={require('../../../img/excel.jpeg')} onClick={()=>{
-                    downloadExcel();}}/>
+                <img className="excel-icon" src={require('../../../img/excel.jpeg')}
+                     onClick={()=>{downloadExcel()}}
+                />
             </div>
 
             <div className="outputArea">

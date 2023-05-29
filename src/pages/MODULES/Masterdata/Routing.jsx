@@ -19,13 +19,13 @@ function Routing() {
                     <tr>
                         <th>No.</th>
                         <th>제품명</th>
-                        <th>프로세스1</th>
-                        <th>프로세스2</th>
-                        <th>프로세스3</th>
-                        <th>프로세스4</th>
-                        <th>프로세스5</th>
-                        <th>프로세스6</th>
-                        <th>프로세스7</th>
+                        <th>공정1</th>
+                        <th>공정2</th>
+                        <th>공정3</th>
+                        <th>공정4</th>
+                        <th>공정5</th>
+                        <th>공정6</th>
+                        <th>공정7</th>
                     </tr>
                     </thead>
 

@@ -13,7 +13,6 @@ function Product() {
 
     return(
         <>
-
             <div className="tableArea">
                 <Table striped bordered hover id="dataTable">
                     <thead>

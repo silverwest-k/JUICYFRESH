@@ -3,6 +3,7 @@ import {Button} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {downloadExcel} from "./Obtain";
 
 // 수주현황
 function ObtainView() {
@@ -66,7 +67,9 @@ function ObtainView() {
           
           <Button onClick={filterData}>조회</Button>
 
-          <img className="excel-icon" src={require('../../img/excel.jpeg')} />
+          <img className="excel-icon" src={require('../../img/excel.jpeg')}
+                onClick={()=>{downloadExcel()}}
+          />
         </div>
 
         <div className="outputArea">

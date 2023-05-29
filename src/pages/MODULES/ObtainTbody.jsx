@@ -1,6 +1,6 @@
-import React, {useState} from "react"
+import React from "react"
 
-const ObtainItem = ({item, index, setSelected})=>{
+const ObtainTbody = ({item, index, setSelected})=>{
     return(
         <tr key={index} onClick={()=> {
             setSelected(item.obtainId)}
@@ -18,4 +18,4 @@ const ObtainItem = ({item, index, setSelected})=>{
     )
 }
 
-export default ObtainItem
+export default ObtainTbody

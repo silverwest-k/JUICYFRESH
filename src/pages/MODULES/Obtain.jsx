@@ -4,7 +4,7 @@ import Table from "react-bootstrap/Table";
 import {useEffect, useState} from "react";
 import { saveAs } from 'file-saver';
 import * as XLSX from "xlsx";
-import ObtainItem from "./ObtainItem";
+import ObtainTbody from "./ObtainTbody";
 
 // 엑셀 다운받기 함수
 export const downloadExcel = () => {
@@ -17,7 +17,7 @@ export const downloadExcel = () => {
         type: "array",
     });
     const dataBlob = new Blob([excelBuffer], { type: "application/octet-stream" });
-    saveAs(dataBlob, `수주관리_${Date.now()}.xlsx`);
+    saveAs(dataBlob, `data_${Date.now()}.xlsx`);
 };
 
 
@@ -28,16 +28,16 @@ function Obtain() {
     const [itemName, setItemName] = useState();
     const [obtainAmount, setObtainAmount] = useState();
     const [customerRequestDate, setCustomerRequestDate] = useState();
-
     const [selected, setSelected] = useState();
 
+    // input 값 초기화
     const onResetStatus = ()=>{
         setItemName("default")
         setObtainAmount("")
         setCustomerRequestDate("")
     }
 
-    // 데이터 받아서 테이블생성
+    // 데이터 받아오기
     const fetchData = () => {
         fetch("http://localhost:8282/juicyfresh/obtain/list")
             .then((res) => res.json())
@@ -46,13 +46,14 @@ function Obtain() {
 
     useEffect(() => {fetchData()}, []);
 
+    // 선택한 행 삭제
     const deleteObtain = ()=>{
         if (selected){
             fetch(`http://localhost:8282/juicyfresh/obtain/delete/${selected}`,{
                 method:"delete"}).then((res) => res.json())
                 .then((res) => {setData(res)})
         } else {
-            console.log("값을 선택해라~")
+            alert("행을 선택하세요")
         }
 
     }
@@ -90,7 +91,8 @@ function Obtain() {
           납기일 <input value={customerRequestDate} type="date" onChange={(e) => {
           const selectedDate = new Date(e.currentTarget.value);
           selectedDate.setHours(0, 0, 0);
-          const formattedDate = selectedDate.toISOString();
+          // const formattedDate = selectedDate.toISOString();
+          const formattedDate = selectedDate.toISOString().split('T')[0];
           setCustomerRequestDate(formattedDate);
           }} />
 
@@ -123,7 +125,7 @@ function Obtain() {
        <tbody>
        {data?.map((item, index) => {
            return(
-               <ObtainItem item={item} index={index} setSelected={setSelected}/>
+               <ObtainTbody item={item} index={index} setSelected={setSelected}/>
            )
        })
        }

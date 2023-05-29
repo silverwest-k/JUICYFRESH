@@ -19,6 +19,7 @@ function Contents() {
     return (
         <div className="contents">
             <Routes>
+                <Route path="*" element={<div>없는 페이지 입니다.</div>}/>
                 <Route path="/" Component={Main}></Route>
                 <Route path="/obtain" Component={Obtain}></Route>
                 <Route path="/obtainview" Component={ObtainView}></Route>
