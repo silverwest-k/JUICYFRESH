@@ -29,8 +29,7 @@ function Sidebar() {
 
                 <Accordion.Item eventKey="2" className="accordion accordion-flush">
                     <Accordion.Header> - 재고관리</Accordion.Header>
-                    <Link to=""><Accordion.Body onClick={menuName}>완제품재고현황</Accordion.Body></Link>
-                    <Link to=""><Accordion.Body onClick={menuName}>원자재재고현황</Accordion.Body></Link>
+                    <Link to=""><Accordion.Body onClick={menuName}>완제품 · 원자재 재고현황</Accordion.Body></Link>
                     <Link to=""><Accordion.Body onClick={menuName}>원자재 입・출고관리</Accordion.Body></Link>
                 </Accordion.Item>
 

@@ -47,19 +47,28 @@ function ObtainView() {
       <>
         <div className="inputArea">
           <select className="selectButton" onChange={(e) => {setSelectCategory(e.target.value)}}>
-            <option disabled selected value="default"> 제품명 ▼ </option>
-            <option value="양배추즙">양배추즙</option>
-            <option value="흑마늘즙">흑마늘즙</option>
-            <option value="석류 젤리스틱">석류 젤리스틱</option>
-            <option value="매실 젤리스틱">매실 젤리스틱</option>
+            <option disabled selected value="default"> 선택 ▼ </option>
+            <option value="제품명">제품명</option>
+            <option value="업체명">업체명</option>
             <option value="전체">전체</option>
           </select>
 
           <select className="selectButton" onChange={(e) => {setSelectValue(e.target.value)}}>
-            <option disabled selected value="default"> 업체명 ▼ </option>
-            <option value="11번가">11번가</option>
-            <option value="쿠팡">쿠팡</option>
-            <option value="전체">전체</option>
+            <option disabled selected value="default"> 선택 ▼ </option>
+            {selectCategory === "제품명" ? (
+                <>
+                  <option value="양배추즙">양배추즙</option>
+                  <option value="흑마늘즙">흑마늘즙</option>
+                  <option value="석류 젤리스틱">석류 젤리스틱</option>
+                  <option value="매실 젤리스틱">매실 젤리스틱</option>
+                </>
+            ) : null}
+            {selectCategory === "업체명" ? (
+                <>
+                  <option value="쿠팡">쿠팡</option>
+                  <option value="11번가">11번가</option>
+                </>
+            ) : null}
           </select>
           
           <input type="date" onChange={(e) => {setAfterDate(e.target.value)}}/>

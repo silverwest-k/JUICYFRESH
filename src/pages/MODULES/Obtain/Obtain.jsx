@@ -98,9 +98,7 @@ function Obtain() {
 
           <Button onClick={() => {addObtain()}}>등록</Button>
           <Button>수정</Button>
-          <Button onClick={()=>{
-              deleteObtain();
-          }}>삭제</Button>
+          <Button onClick={()=>{deleteObtain()}}>삭제</Button>
           <Button>확정</Button>
           <img className="excel-icon" src={require('../../../img/excel.jpeg')}
                onClick={downloadExcel}

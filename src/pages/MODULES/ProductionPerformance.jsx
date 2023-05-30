@@ -49,8 +49,8 @@ function ProductionPerformance() {
                                     <td>{item.productionManagementId}</td>
                                     <td>{item.process}</td>
                                     <td>{item.processAmount}</td>
-                                    <td>{item.processStartTime}</td>
-                                    <td>{item.processFinishTime}</td>
+                                    <td>{item.processStartTime.split("T")[0]}</td>
+                                    <td>{item.processFinishTime.split("T")[0]}</td>
                                 </tr>
                             )
                         })
