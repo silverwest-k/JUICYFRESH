@@ -67,7 +67,7 @@ function ObtainView() {
           
           <Button onClick={filterData}>조회</Button>
 
-          <img className="excel-icon" src={require('../../img/excel.jpeg')}
+          <img className="excel-icon" src={require('../../../img/excel.jpeg')}
                 onClick={()=>{downloadExcel()}}
           />
         </div>

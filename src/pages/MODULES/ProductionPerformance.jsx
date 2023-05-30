@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import Table from "react-bootstrap/Table";
-import {downloadExcel} from "./Obtain";
+import {downloadExcel} from "./Obtain/Obtain";
 
 // 생산 실적 조회
 function ProductionPerformance() {

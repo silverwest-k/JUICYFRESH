@@ -1,6 +1,6 @@
 import {Route, Routes} from "react-router-dom";
-import Obtain from "../MODULES/Obtain";
-import ObtainView from "../MODULES/ObtainView";
+import Obtain from "../MODULES/Obtain/Obtain";
+import ObtainView from "../MODULES/Obtain/ObtainView";
 import OrderView from "../MODULES/OrderView";
 import DataIndex from "../MODULES/Masterdata/DataIndex";
 import Product from "../MODULES/Masterdata/Product";

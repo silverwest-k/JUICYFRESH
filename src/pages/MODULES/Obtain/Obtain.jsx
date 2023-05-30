@@ -102,7 +102,7 @@ function Obtain() {
               deleteObtain();
           }}>삭제</Button>
           <Button>확정</Button>
-          <img className="excel-icon" src={require('../../img/excel.jpeg')}
+          <img className="excel-icon" src={require('../../../img/excel.jpeg')}
                onClick={downloadExcel}
           />
       </div>

@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import {useEffect, useState} from "react";
-import {downloadExcel} from "./Obtain";
+import {downloadExcel} from "./Obtain/Obtain";
 
 // 발주현황
 function OrderView() {
