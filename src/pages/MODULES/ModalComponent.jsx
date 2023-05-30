@@ -1,11 +1,13 @@
 import {Button} from "react-bootstrap";
 import Modal from 'react-bootstrap/Modal';
+import Table from "react-bootstrap/Table";
 
-function ModalComponent({isOpen, closeModal}) {
+function ModalComponent({isOpen, closeModal, res}) {
 
     return(
         <>
-            <div className="modal show"
+            <div
+                className="custom-modal"
                 style={{
                     display: isOpen ? "block" : "none",
                     position: "absolute",
@@ -17,7 +19,7 @@ function ModalComponent({isOpen, closeModal}) {
                     maxWidth: "100%",
                     maxHeight: "100%",
                     overflowY: "auto",
-            }}
+                }}
             >
                 <Modal.Dialog>
 
@@ -26,7 +28,26 @@ function ModalComponent({isOpen, closeModal}) {
                     </Modal.Header>
 
                     <Modal.Body>
-                        <p>내용 들어가는 자리임, 데이터 넣어도됨</p>
+                        <Table striped bordered hover>
+                            <thead>
+                            <tr>
+                                <th>
+                                    LOT NO.
+                                </th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            {res?.map((item, index) => {
+                                return(
+                                    <tr key={index}>
+                                        <td>{item}</td>
+                                    </tr>
+                                )
+                            })
+                            }
+                            </tbody>
+                        </Table>
                     </Modal.Body>
 
                     <Modal.Footer style={{background : "#ffea62"}}>

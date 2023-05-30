@@ -58,6 +58,18 @@ function Obtain() {
 
     }
 
+    // 선택한 행 확정
+    const confirmObtain = ()=>{
+        if (selected){
+            fetch(`http://localhost:8282/juicyfresh/obtain/confirm/${selected}`,{
+                method:"post"})
+                //.then((res) => res.json())
+                //.then(()=> {fetchData()})
+        } else {
+            alert("행을 선택하세요")
+        }
+    }
+
     // 수주입력 데이터 보내기
     const addObtain = () => {
         if (!customerRequestDate) {
@@ -100,14 +112,13 @@ function Obtain() {
           }} />
 
           <Button onClick={() => {addObtain()}}>등록</Button>
-          <Button>수정</Button>
           <Button onClick={()=>{deleteObtain()}}>삭제</Button>
-          <Button>확정</Button>
+          <Button onClick={() => {confirmObtain()}}>확정</Button>
           <img className="excel-icon" src={require('../../../img/excel.jpeg')}
                onClick={downloadExcel}
           />
       </div>
-          {/*{selected && `선택된 번호 : ${selected}`}*/}
+          {selected && `선택된 번호 : ${selected}`}
      <div className="outputArea">
        <Table striped bordered hover id="dataTable">
         <thead>

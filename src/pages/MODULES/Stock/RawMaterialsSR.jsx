@@ -32,7 +32,6 @@ function RawMaterialsSR() {
                             <th>수량</th>
                             <th>일자</th>
                             <th>구분</th>
-
                         </tr>
                         </thead>
 

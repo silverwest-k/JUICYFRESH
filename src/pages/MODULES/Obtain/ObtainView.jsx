@@ -16,7 +16,7 @@ function ObtainView() {
 
   // 데이터 받아서 테이블생성
   useEffect(() => {
-    fetch("http://localhost:8282/juicyfresh/obtain/list")
+    fetch("http://localhost:8282/juicyfresh/obtain/confirm/list")
         .then((res) => res.json())
         .then((res) => {setData(res)})
   }, []);
