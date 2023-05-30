@@ -189,6 +189,10 @@ div.dropdown-menu {
     --bs-table-accent-bg : rgba(0, 0, 0, 0.05);
 }
 
+/* 모달창 */
 .modal {
-
+    --bs-table-hover-bg: none;
+    --bs-table-striped-bg : none;
+    --bs-table-accent-bg : none;
 }
+

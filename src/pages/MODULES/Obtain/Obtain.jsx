@@ -60,6 +60,10 @@ function Obtain() {
 
     // 수주입력 데이터 보내기
     const addObtain = () => {
+        if (!customerRequestDate) {
+            alert("납기일을 선택해주세요.");
+            return;
+        }
         fetch("http://localhost:8282/juicyfresh/obtain/add", {
             method: 'post',
             headers: {
@@ -87,12 +91,11 @@ function Obtain() {
           </select>
           
           수량 <input value={obtainAmount} onChange={(e) => {setObtainAmount(e.currentTarget.value)}} />
-          
-          납기일 <input value={customerRequestDate} type="date" onChange={(e) => {
+
+          납기일 <input type="date" onChange={(e) => {
           const selectedDate = new Date(e.currentTarget.value);
           selectedDate.setHours(0, 0, 0);
-          // const formattedDate = selectedDate.toISOString();
-          const formattedDate = selectedDate.toISOString().split('T')[0];
+          const formattedDate = selectedDate.toISOString();
           setCustomerRequestDate(formattedDate);
           }} />
 
