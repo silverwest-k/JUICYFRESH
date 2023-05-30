@@ -63,8 +63,7 @@ function Obtain() {
         if (selected){
             fetch(`http://localhost:8282/juicyfresh/obtain/confirm/${selected}`,{
                 method:"post"})
-                //.then((res) => res.json())
-                //.then(()=> {fetchData()})
+                .then(()=> {fetchData()})
         } else {
             alert("행을 선택하세요")
         }
