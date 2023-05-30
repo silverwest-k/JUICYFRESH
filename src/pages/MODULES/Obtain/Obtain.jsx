@@ -107,7 +107,7 @@ function Obtain() {
                onClick={downloadExcel}
           />
       </div>
-          {selected && `선택된 번호 : ${selected}`}
+          {/*{selected && `선택된 번호 : ${selected}`}*/}
      <div className="outputArea">
        <Table striped bordered hover id="dataTable">
         <thead>

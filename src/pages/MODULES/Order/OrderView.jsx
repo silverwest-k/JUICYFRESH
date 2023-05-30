@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import {useEffect, useState} from "react";
-import {downloadExcel} from "./Obtain/Obtain";
+import {downloadExcel} from "../Obtain/Obtain";
 
 // 발주현황
 function OrderView() {
@@ -46,7 +46,7 @@ function OrderView() {
                 ~ <input type="date"/>
 
                 <Button>조회</Button>
-                <img className="excel-icon" src={require('../../img/excel.jpeg')}
+                <img className="excel-icon" src={require('../../../img/excel.jpeg')}
                      onClick={()=>{downloadExcel()}}
                 />
             </div>

@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import Table from "react-bootstrap/Table";
-import {downloadExcel} from "./Obtain/Obtain";
+import {downloadExcel} from "../Obtain/Obtain";
 
 //생산 일정 조회
 function ProductionSchedule() {
@@ -16,7 +16,7 @@ function ProductionSchedule() {
     return (
         <>
             <div className="inputArea">
-                <img className="excel-icon" src={require('../../img/excel.jpeg')}
+                <img className="excel-icon" src={require('../../../img/excel.jpeg')}
                      onClick={() => {downloadExcel()}}
                 />
             </div>

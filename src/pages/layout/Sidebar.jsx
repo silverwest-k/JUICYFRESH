@@ -29,19 +29,20 @@ function Sidebar() {
 
                 <Accordion.Item eventKey="2" className="accordion accordion-flush">
                     <Accordion.Header> - 재고관리</Accordion.Header>
-                    <Link to=""><Accordion.Body onClick={menuName}>완제품 · 원자재 재고현황</Accordion.Body></Link>
-                    <Link to=""><Accordion.Body onClick={menuName}>원자재 입・출고관리</Accordion.Body></Link>
+                    <Link to="/stock"><Accordion.Body onClick={menuName}>재고현황</Accordion.Body></Link>
+                    <Link to="/rawMaterialssr"><Accordion.Body onClick={menuName}>원자재 입・출고관리</Accordion.Body></Link>
+                    <Link to="/finishedgoodssr"><Accordion.Body onClick={menuName}>완제품 입・출고관리</Accordion.Body></Link>
                 </Accordion.Item>
 
                 <Accordion.Item eventKey="3" className="accordion accordion-flush">
                     <Accordion.Header> - 출하관리</Accordion.Header>
-                    <Link to=""><Accordion.Body onClick={menuName}>출하대기제품현황</Accordion.Body></Link>
-                    <Link to=""><Accordion.Body onClick={menuName}>출하이력</Accordion.Body></Link>
+                    <Link to="/shipmentstandby"><Accordion.Body onClick={menuName}>출하대기제품현황</Accordion.Body></Link>
+                    <Link to="/shipmenthistory"><Accordion.Body onClick={menuName}>출하이력</Accordion.Body></Link>
                 </Accordion.Item>
 
                 <Accordion.Item eventKey="4" className="accordion accordion-flush">
                     <Accordion.Header> - 현황관리</Accordion.Header>
-                    <Link to=""><Accordion.Body onClick={menuName}>공정별생산현황</Accordion.Body></Link>
+                    <Link to="/productionsituation"><Accordion.Body onClick={menuName}>공정별생산현황</Accordion.Body></Link>
                 </Accordion.Item>
 
                 <Accordion.Item eventKey="5" className="accordion accordion-flush">
